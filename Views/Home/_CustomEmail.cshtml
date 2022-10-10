@@ -1,0 +1,41 @@
+﻿@using SendEmailsDotNetCore6.Dtos
+@model MailRequestDto
+
+<form method="post" asp-action="SendMail" enctype="multipart/form-data">
+    <div class="form-group">
+        <label class="text-muted" asp-for="ToEmail"></label>
+        <input type="text" class="form-control" asp-for="ToEmail" maxlength="250" />
+        <span asp-validation-for="ToEmail" class="text-danger"></span>
+    </div>
+
+    <div class="form-group pt-3">
+        <label class="text-muted" asp-for="Subject"></label>
+        <input type="text" class="form-control" asp-for="Subject" maxlength="250" />
+        <span asp-validation-for="Subject" class="text-danger"></span>
+    </div>
+    <div class="form-group pt-3">
+        <label class="text-muted" asp-for="Body"></label>
+        <textarea class="form-control" asp-for="Body" maxlength="2500" rows="5"></textarea>
+        <span asp-validation-for="Body" class="text-danger"></span>
+    </div>
+    <div class="mb-3 pt-3">
+        <label class="form-label text-muted" asp-for="Attachments"></label>
+        <input type="file" class="form-control" asp-for="Attachments" multiple />
+        <span asp-validation-for="Attachments" class="text-danger"></span>
+    </div>
+
+    <div class="mt-5">
+        <hr />
+    </div>
+
+    <div class="mt-4 mb-5">
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-check"></i>
+            Save
+        </button>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-x"></i>
+            Cancel
+        </a>
+    </div>
+</form>

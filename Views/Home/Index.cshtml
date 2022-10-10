@@ -1,0 +1,22 @@
+﻿@using SendEmailsDotNetCore6.Dtos
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <partial name="_CustomEmail" model="new MailRequestDto()" />
+        </div>
+        <div class="col-md-6 mt-5">
+            <partial name="_TemplateEmail" model="new WelcomeRequestDto()" />
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
